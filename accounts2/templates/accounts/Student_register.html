@@ -1,26 +1,26 @@
 <h3>Welcome Student</h3>
+<form method="POST" action="">{% csrf_token %}
 
-<form method="POST" action="">
-    {% csrf_token %}
     {{form.username.label}}
     {{form.username}}
     <br/>
     <br/>
-    {{form.password.label}}
-    {{form.password}}
+    {{form.password1.label}}
+    {{form.password1}}
+    <br/>
+    <br/>
+    {{form.password2.label}}
+    {{form.password2}}
     <br/>
     <br/>
     {{form.email.label}}
     {{form.email}}
     <br/>
     <br/>
-    {{form.Student_Number.label}}
-    {{form.Student_Number}}
     <br/>
-    <br/>
-    <br/>
+    {{form.errors}}
     <h3>Already Have an account</h3>
-    <a href="Student_Login"> login </a><br/>
+    <a href="polls/Student_Login"> login </a><br/>
 
     <input type="submit" name="Create User">
 
