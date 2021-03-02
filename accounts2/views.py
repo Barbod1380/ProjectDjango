@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .forms import CreateUserForm
-
+from .forms import ProfileForm
 
 
 def WhoAreYou(request):
@@ -20,15 +20,16 @@ def TregisterPage(request):
     context = {'form': form}
     return render(request, 'accounts/Teacher_register.html', context)
 
+
 def SregisterPage(request):
-    form = CreateUserForm()
+    form = ProfileForm()
 
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
+        form = ProfileForm(request.POST)
         if form.is_valid():
             form.save()
 
-    context = {'form': form}
+    context = {'form':form}
     return render(request, 'accounts/Student_register.html', context)
 
 
