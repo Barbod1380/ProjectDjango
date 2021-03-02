@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from .forms import CreateUserForm
 from .forms import ProfileForm
 
@@ -31,6 +30,22 @@ def SregisterPage(request):
 
     context = {'form':form}
     return render(request, 'accounts/Student_register.html', context)
+
+
+
+
+def TLoginPage(request):
+    form = CreateUserForm
+    context = {'form':form}
+    return render(request, 'accounts/Teacher_login.html', context)
+
+
+
+def SLoginPage(request):
+    form = ProfileForm
+    context = {'form':form}
+    return render(request, 'accounts/Student_login.html', context)
+
 
 
 
