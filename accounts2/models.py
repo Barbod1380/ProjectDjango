@@ -1,5 +1,6 @@
 from django.db import models
 from .validators import file_size
+from django.utils import timezone
 
 class Video(models.Model):
 
@@ -8,5 +9,4 @@ class Video(models.Model):
 
     def __str__(self):
         return self.caption
-
 

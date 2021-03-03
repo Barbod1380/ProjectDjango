@@ -17,9 +17,6 @@ def registerPage(request):
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
-
-
-
 def LoginPage(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -45,6 +42,26 @@ def HomePage(request):
     else:
         form=Video_form
     return render(request, 'accounts/index.html', {"form":form})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
