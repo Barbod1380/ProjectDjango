@@ -1,11 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import CreateUserForm
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
-from .forms import Video_form
-from .models import Video
-
-
+from .forms import Video_form, CreateUserForm
+from .models import Video, Questions
+from django.views.generic import ListView, DetailView
 
 def registerPage(request):
     form = CreateUserForm()
@@ -40,17 +38,18 @@ def HomePage(request):
             form.save()
             return HttpResponse("<h1> Uploaded Succesfully </h1>")
     else:
-        form=Video_form
+        form = Video_form
     return render(request, 'accounts/index.html', {"form":form})
 
 
+class HomePage2(ListView):
+    model = Questions
+    template_name = "accounts/Questions.html"
 
 
-
-
-
-
-
+class QuestionPage(DetailView):
+    model = Questions
+    template_name = "accounts/eachquestion.html"
 
 
 

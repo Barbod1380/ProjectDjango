@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Video
+from .models import Video, Questions
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -10,11 +10,12 @@ class CreateUserForm(UserCreationForm):
 
 
 
-class UploadFileForm(forms.Form):
-    title = forms.CharField(max_length=50)
-    file = forms.FileField()
+class Question_form(forms.Form):
+    class Meta:
+        model = Questions
+        fields = ("title", "body")
 
 class Video_form(forms.ModelForm):
     class Meta:
-        model=Video
-        fields=("caption","video")
+        model = Video
+        fields = ("caption","video")
