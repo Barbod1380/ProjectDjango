@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
 from .forms import Video_form, CreateUserForm
 from .models import Video, Questions
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 def registerPage(request):
     form = CreateUserForm()
@@ -15,6 +15,8 @@ def registerPage(request):
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
+
+
 def LoginPage(request):
     form = CreateUserForm()
     if request.method == 'POST':
@@ -39,22 +41,22 @@ def HomePage(request):
             return HttpResponse("<h1> Uploaded Succesfully </h1>")
     else:
         form = Video_form
-    return render(request, 'accounts/index.html', {"form":form})
+    return render(request, 'accounts/index.html', {"form": form})
 
 
 class HomePage2(ListView):
     model = Questions
     template_name = "accounts/Questions.html"
 
-
 class QuestionPage(DetailView):
     model = Questions
     template_name = "accounts/eachquestion.html"
 
 
-
-
-
+class AddQuestion(CreateView):
+    model = Questions
+    template_name = 'accounts/AddQuestion.html'
+    fields = '__all__'
 
 
 

@@ -1,6 +1,7 @@
 from django.db import models
 from .validators import file_size
-from ckeditor.fields import RichTextField
+from django.urls import reverse
+
 
 class Video(models.Model):
 
@@ -10,6 +11,7 @@ class Video(models.Model):
     def __str__(self):
         return self.caption
 
+
 class Questions(models.Model):
 
     title = models.CharField(max_length=100, null=True)
@@ -17,3 +19,8 @@ class Questions(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('home')
+
+

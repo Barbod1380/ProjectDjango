@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import Video, Questions
+from ckeditor.fields import  RichTextField
 
 class CreateUserForm(UserCreationForm):
     class Meta:
