@@ -1,0 +1,30 @@
+{% block content %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>StudentNumber</th>
+        <th>QuestionName</th>
+        <th>Download</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book in books %}
+    <tr>
+        <td>{{book.FirstName}}</td>
+        <td>{{book.LastName}}</td>
+        <td>{{book.StudentNumber}}</td>
+        <td>{{book.QuestionName}}</td>
+        <td>{{book.id}}</td>
+        <td>
+            <a href="{{book.pdf.url}}" class="btn btn-primary btn-sm">
+                Download pdf
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,17 @@
+<h1>{{ question.title }}</h1>
+<hr>
+<br/>
+<h2>{{ question.body }}</h2>
+<br/>
+<br/>
+<h2>Time Remain</h2>
+{% if task.complete == True %}
+	<strike>{{question}}, {{question.due}}</strike>
+	{% else %}
+	<span></span>
+	<span>{{ question.due|timeuntil }}</span>
+{% endif %}
+<hr>
+<br/>
+<br/>
+<a href="{{question.pk}}/" style="color:green"><h2>UploadYourAnswer</h2></a>

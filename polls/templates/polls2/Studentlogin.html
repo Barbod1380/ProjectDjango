@@ -1,0 +1,9 @@
+<h1>Student Login</h1>
+<form method="POST" action="">{% csrf_token %}
+
+    {{form.as_p}}
+    <br/>
+    <br/>
+    {{form.errors}}
+    <input type="submit" name="Create User">
+</form>

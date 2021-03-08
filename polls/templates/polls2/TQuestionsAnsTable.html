@@ -1,0 +1,42 @@
+{% block content %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>StudentNumber</th>
+        <th>QuestionName</th>
+        <th>Uploaded Time</th>
+        <th>Download</th>
+        <th>InputGrade</th>
+        <th>Grade</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for x in books %}
+        <td>{{x.FirstName}}</td>
+        <td>{{x.LastName}}</td>
+        <td>{{x.StudentNumber}}</td>
+        <td>{{x.QuestionName}}</td>
+        <td>{{x.Sending_time}}</td>
+        <td>
+            <a href="{{book.pdf.url}}" class="btn btn-primary btn-sm">
+                Download File
+            </a>
+        </td>
+        <td>
+        <a href="GradeInput/">Input</a>
+        </td>
+        <td>
+
+        <tr>
+
+        {% endfor %}
+
+    </tr>
+    </tbody>
+</table>
+{% endblock %}
+
